@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ZenithWeb</title>
+    <title>@ViewData["Title"] - Zenith Web Application - COMP3973</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -26,14 +26,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ZenithWeb</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">COMP 3973 Web App</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
+				<ul class="nav navbar-nav">
+					<li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+					<li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+					<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+					@if (User.Identity.IsAuthenticated && User.IsInRole("member"))
+					{
+						<li><a asp-area="" asp-controller="Compound" asp-action="Index">Compound Calculator</a></li>
+					}
+
+					@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+					{
+						<li><a asp-area="" asp-controller="RoleManager" asp-action="Index">Role Manager</a></li>
+						<li><a asp-area="" asp-controller="UserManager" asp-action="Index">User Manager</a></li>
+					}
+
+				</ul>
                 <partial name="_LoginPartial" />
             </div>
         </div>
