@@ -13,5 +13,6 @@ namespace ZenithWeb.Data
             : base(options)
         {
         }
+        public DbSet<ZenithWeb.Models.ApplicationRole> ApplicationRole { get; set; }
     }
 }

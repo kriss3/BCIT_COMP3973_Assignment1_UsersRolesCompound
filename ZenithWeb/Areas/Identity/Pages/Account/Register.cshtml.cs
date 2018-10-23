@@ -88,6 +88,11 @@ namespace ZenithWeb.Areas.Identity.Pages.Account
             [DataType(DataType.Text)]
             [MaxLength(35)]
             public string Country { get; set; }
+
+            [DataType(DataType.Text)]
+            [MaxLength(12)]
+            public string MobileNumber { get; set; }
+
         }
 
         public void OnGet(string returnUrl = null)
@@ -100,7 +105,6 @@ namespace ZenithWeb.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                //var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
                 var user = new ApplicationUser
                 {
                     UserName = Input.Email,
@@ -111,7 +115,8 @@ namespace ZenithWeb.Areas.Identity.Pages.Account
                     City = Input.City,
                     Province = Input.Province,
                     PostalCode = Input.PostalCode,
-                    Country = Input.Country
+                    Country = Input.Country,
+                    MobileNumber = Input.MobileNumber
                 };
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
@@ -130,6 +135,7 @@ namespace ZenithWeb.Areas.Identity.Pages.Account
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
+                    await _userManager.AddToRoleAsync(user, "Member");
                     return LocalRedirect(returnUrl);
                 }
                 foreach (var error in result.Errors)

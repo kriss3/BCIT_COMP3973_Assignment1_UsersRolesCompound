@@ -17,14 +17,14 @@ namespace ZenithWeb.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Application for Assignment 1. Role/User Management with Compound Page.";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Krzsztof Szczurowski. BCIT COMP 3973.";
 
             return View();
         }

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ZenithWeb.Models.ApplicationUser>
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h2>List of Available Accounts</h2>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>@Html.DisplayNameFor(Model => Model.FirstName)</th>
+			<th>@Html.DisplayNameFor(Model => Model.LastName)</th>
+			<th>@Html.DisplayNameFor(Model => Model.UserName)</th>
+			<th>@Html.DisplayNameFor(Model => Model.Email)</th>
+			<th>@Html.DisplayNameFor(Model => Model.AppRole)</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var m in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => m.FirstName);
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => m.LastName);
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => m.UserName);
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => m.Email);
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => m.AppRole.Name);
+				</td>
+				<td>
+					<a asp-action="Details" asp-route-id="@m.Id">Details</a> |
+					<a asp-action="Edit" asp-route-id="@m.Id">Edit</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

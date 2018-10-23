@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace ZenithWeb.Models
 {
@@ -8,14 +9,20 @@ namespace ZenithWeb.Models
 
         public ApplicationUser(string userName) : base(userName) {}
 
+        [Display(Name="First Name")]
         public string FirstName { get; set; }
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
         public string Street { get; set; }
         public string City { get; set; }
         public string Province { get; set; }
+        [Display(Name = "Postal Code")]
         public string PostalCode { get; set; }
         public string Country { get; set; }
+        [Display(Name = "Mobile Number")]
         public string MobileNumber { get; set; }
+        [Display(Name = "Role")]
+        public ApplicationRole AppRole { get; set; }
     }
 
     /*

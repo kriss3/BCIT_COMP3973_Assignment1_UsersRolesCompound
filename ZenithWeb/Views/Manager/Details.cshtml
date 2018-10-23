@@ -1,0 +1,45 @@
+﻿@model ZenithWeb.Models.ApplicationUser
+@{
+	ViewData["Title"] = "Details";
+}
+
+<div>
+	<h4>Account User Details</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.UserName)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.UserName)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.FirstName)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.FirstName)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.LastName )
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.LastName)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.Email)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.Email)
+		</dd>
+		<dt>
+			@Html.DisplayNameFor(model => model.AppRole.Name)
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => model.AppRole.Name)
+		</dd>
+	</dl>
+</div>
+<div>
+	<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default">Edit</a>
+	<a asp-action="Index" class="btn btn-default">Back to List</a>
+</div>

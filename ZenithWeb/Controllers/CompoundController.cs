@@ -9,7 +9,7 @@ using ZenithWeb.Service;
 
 namespace ZenithWeb.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin, Member")]
     public class CompoundController : Controller
     {
         public IActionResult Index()
