@@ -31,9 +31,12 @@
             <div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-					@if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
+					@if (User.Identity.IsAuthenticated)
 					{
-						<li><a asp-area="" asp-controller="Compound" asp-action="Index">Compound Calculator</a></li>
+						@if (User.IsInRole("Member") || User.IsInRole("Admin"))
+						{
+							<li><a asp-area="" asp-controller="Compound" asp-action="Index">Compound Calculator</a></li>
+						}
 					}
 					@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
 					{
