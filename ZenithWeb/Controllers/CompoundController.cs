@@ -9,12 +9,12 @@ using ZenithWeb.Service;
 
 namespace ZenithWeb.Controllers
 {
-    [Authorize(Roles ="Admin, Member")]
+    [Authorize(Roles ="Admin,Member")]
     public class CompoundController : Controller
     {
         public IActionResult Index()
         {
-            ViewData["Title"] = "Compound Calcuator";
+            ViewData["Title"] = "Compound Calculator";
             return View();
         }
 

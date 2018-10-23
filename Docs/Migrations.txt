@@ -1,0 +1,7 @@
+Data Migrations
+
+User commands: 
+dotnet ef migrations add 'ExtendeUsersAndRoles'
+dotnet ef database update
+dotnet ef migrations add 'AddingDefRoleToUser'
+dotnet ef database update
